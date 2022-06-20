@@ -11,12 +11,13 @@ const Title = (props) => {
 const styles = StyleSheet.create({
   text: {
     position: "absolute",
+    width: 298,
+    height: 57,
     left: 58,
     top: 224,
-    fontFamily: 'SF Pro Display', /* make font work */
+    /*fontFamily: 'SF Pro Display', /* make font work */
     fontWeight: "bold",
     fontSize: 48,
-
     color: "#FFFFFF",
   }
   
