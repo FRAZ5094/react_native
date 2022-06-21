@@ -1,12 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const Title = (props) => {
-
+const Title = () => {
   return (
       <Text style={styles.text}>RPE Calculator</Text>
-  )
-
-}
+  );
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -15,7 +13,7 @@ const styles = StyleSheet.create({
     height: 57,
     left: 58,
     top: 224,
-    /*fontFamily: 'SF Pro Display', /* make font work */
+    fontFamily: 'SF Pro Display',
     fontWeight: "bold",
     fontSize: 48,
     color: "#FFFFFF",
