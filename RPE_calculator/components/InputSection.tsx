@@ -9,9 +9,13 @@ const InputSection = () => {
 
   return (
     <View style={styles.container}>
-      <Input text={"Weight"}/>
-      <Input text={"Reps"}/>
-      <RpeSelectorButton />
+      <View style={styles.wrapper}>
+        <Input text={"Weight"}/>
+      </View>
+      <View style={styles.wrapper}>
+        <Input text={"Reps"}/>
+      </View>
+      <Input text={"RPE"}/>
     </View>
   )
 
@@ -21,10 +25,13 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     width: 382,
-    height: 222,
+    height: 230,
     left: 16,
-    top: 305,
-  }
+    bottom: 317,
+  },
+  wrapper: {
+    paddingBottom: 16,
+  },
   
 });
 export default InputSection;

@@ -4,9 +4,7 @@ const Input = ({ text }) => {
 
 
   return (
-    <View style={styles.container}>
-      <TextInput keyboardType="number-pad" clearTextOnFocus={true} placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={text} />
-    </View>
+      <TextInput keyboardType="decimal-pad" keyboardAppearance="dark" clearTextOnFocus={true} placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={text} />
   )
 
 }
@@ -26,9 +24,6 @@ const styles = StyleSheet.create({
     fontFamily: "SF Pro Display",
     color: "#FFFFFF",
   },
-  container: {
-    paddingBottom: 16,
-  }
   
 });
 export default Input;

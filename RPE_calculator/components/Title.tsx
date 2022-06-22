@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     width: 298,
     height: 57,
     left: 58,
-    top: 134,
+    top: 273,
     fontFamily: 'SF Pro Display',
     fontWeight: "bold",
     fontSize: 48,
