@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { View, Text, StyleSheet, Pressable, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, Keyboard } from 'react-native';
 import RpePicker from './RpePicker';
 
 const RpeSelectorButton = () => {
@@ -8,14 +8,14 @@ const RpeSelectorButton = () => {
 
   return (
     <View>
+    
+      <Pressable style={styles.button} onPress={() => { Keyboard.dismiss(); setModalOpen(true) }}>
 
-      <Pressable style={styles.button} onPress={() =>{setModalOpen(true)}}>
+        <Text style={styles.text}>RPE</Text>
 
-      <Text style={styles.text}>RPE</Text>
+      </Pressable>
 
-    </Pressable>
-
-    <RpePicker modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <RpePicker modalOpen={modalOpen} setModalOpen={setModalOpen} />
 
     </View>
   )

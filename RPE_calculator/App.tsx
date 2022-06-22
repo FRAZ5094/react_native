@@ -5,7 +5,6 @@ import Background from './assets/Background.svg';
 import Title from "./components/Title.tsx";
 import { useFonts } from 'expo-font';
 import InputSection from './components/InputSection.tsx';
-import RpePicker from './components/RpePicker';
 
 
 export default function App() {
@@ -16,14 +15,14 @@ export default function App() {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <Background style={styles.background} />
-        <Title />
-        <InputSection />
-        <StatusBar style="auto" />
-      </View>
-    </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Background style={styles.background} />
+          <Title />
+          <InputSection />
+          <StatusBar style="light" />
+        </View>
+      </TouchableWithoutFeedback>
   );
 }
 

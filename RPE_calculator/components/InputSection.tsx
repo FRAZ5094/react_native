@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Input from "./Input.tsx";
 import RpePicker from './RpePicker.tsx';
 import RpeSelectorButton from './RpeSelectorButton';
@@ -12,7 +12,8 @@ const InputSection = () => {
       <Input text={"Weight"}/>
       <Input text={"Reps"}/>
       <RpeSelectorButton />
-    </View>)
+    </View>
+  )
 
 }
 

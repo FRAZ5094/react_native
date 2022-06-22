@@ -5,7 +5,7 @@ const Input = ({ text }) => {
 
   return (
     <View style={styles.container}>
-      <TextInput keyboardType="number-pad" placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={text} />
+      <TextInput keyboardType="number-pad" clearTextOnFocus={true} placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={text} />
     </View>
   )
 
