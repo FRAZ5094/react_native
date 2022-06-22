@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import Input from "./Input.tsx";
+import RpePicker from './RpePicker.tsx';
+import RpeSelectorButton from './RpeSelectorButton';
 
 const InputSection = () => {
   
@@ -9,8 +11,8 @@ const InputSection = () => {
     <View style={styles.container}>
       <Input text={"Weight"}/>
       <Input text={"Reps"}/>
-    </View>
-  )
+      <RpeSelectorButton />
+    </View>)
 
 }
 
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
     width: 382,
     height: 222,
     left: 16,
-    top: 324,
+    top: 305,
   }
   
 });
