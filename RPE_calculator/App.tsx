@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, TextInput } from 'react-native';
 import Background from './assets/Background.svg';
 import Title from "./components/Title.tsx";
 import { useFonts } from 'expo-font';
@@ -12,15 +12,19 @@ import ResultsSection from './components/ResultsSection';
 export default function App() {
 
   const calculateMax = () => {
-    console.log("Calculating max");
-    max=weight+reps+RPE;
+      console.log("Calculating max");
+    // @ts-ignore: Object is possibly 'null'.
+      let newMax=parseInt(weight) + parseInt(reps) + parseInt(RPE);
+      setMax(newMax);
   }
 
   const keyboardHeight = useKeyboardHeight();
-  const [ weight, setWeight ] = useState(0);
-  const [ reps, setReps ] = useState(0);
-  const [ RPE, setRPE ] = useState(0);
-  let max=200;
+  let [ weight, setWeight ] = useState();
+  let [ reps, setReps ] = useState();
+  let [ RPE, setRPE ] = useState();
+  let [ max, setMax ] = useState();
+
+  let InputProps = { weight, setWeight, reps, setReps, RPE, setRPE };
 
   useEffect(() => {
     console.log("App.tsx rerender");
@@ -39,7 +43,7 @@ export default function App() {
           <Background style={styles.background} />
           <Title />
           <ResultsSection max={max} />
-          <InputSection />
+          <InputSection {...InputProps} />
           <StatusBar style="light" />
         </View>
       </TouchableWithoutFeedback>

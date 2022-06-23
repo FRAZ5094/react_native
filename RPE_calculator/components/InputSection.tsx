@@ -1,32 +1,20 @@
 import {Picker} from '@react-native-picker/picker';
 import {useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Pressable, TouchableWithoutFeedback, Keyboard, TextInput } from 'react-native';
-import Input from "./Input.tsx";
+import Input from "./Input";
 
-const InputSection = () => {
+const InputSection = ({ weight, setWeight, reps, setReps, RPE, setRPE }) => {
   
-  const [ RPEPickerOpen, setRPEPickerOpen ] = useState(false);  
 
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Input placeholder={"Weight"}/>
+        <Input placeholder={"Weight"} state={weight} setState={setWeight} />
       </View>
       <View style={styles.wrapper}>
-        <Input placeholder={"Reps"}/>
+        <Input placeholder={"Reps"} state={reps} setState={setReps}/>
       </View>
-      <Input onPress={() => {setRPEPickerOpen(!RPEPickerOpen)}} placeholder={"RPE"}/>
-      { RPEPickerOpen && <Picker>
-          <Picker.Item {...pickerItemProps} label="RPE6" value="6" />
-          <Picker.Item {...pickerItemProps} label="RPE6.5" value="6.5" />
-          <Picker.Item {...pickerItemProps} label="RPE7" value="7" />
-          <Picker.Item {...pickerItemProps} label="RPE7.5" value="7.5" />
-          <Picker.Item {...pickerItemProps} label="RPE8" value="8" />
-          <Picker.Item {...pickerItemProps} label="RPE8.5" value="8.5" />
-          <Picker.Item {...pickerItemProps} label="RPE9" value="9" />
-          <Picker.Item {...pickerItemProps} label="RPE 9.5" value="9.5" />
-          <Picker.Item {...pickerItemProps} label="RPE 10" value="10" />
-        </Picker>}
+      <Input placeholder={"RPE"} state={RPE} setState={setRPE}/>
     </View>
   )
 

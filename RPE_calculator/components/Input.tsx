@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet , TextInput } from 'react-native';
 
-const Input = ({ placeholder, text, onChange }) => {
+const Input = ({ placeholder, state, setState }) => {
 
 
   return (
-      <TextInput keyboardType="decimal-pad" keyboardAppearance="dark" clearTextOnFocus={true} placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={placeholder} text={text} onChange={onChange} />
+    <TextInput keyboardType="decimal-pad" keyboardAppearance="dark" clearTextOnFocus={true} placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={placeholder} value={state} onChangeText={text => setState(text)} />
   )
 
 }
