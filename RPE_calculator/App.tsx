@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Background from './assets/Background.svg';
 import Title from "./components/Title.tsx";
@@ -11,8 +11,22 @@ import ResultsSection from './components/ResultsSection';
 
 export default function App() {
 
+  const calculateMax = () => {
+    console.log("Calculating max");
+    max=weight+reps+RPE;
+  }
+
   const keyboardHeight = useKeyboardHeight();
-  let max=160;
+  const [ weight, setWeight ] = useState(0);
+  const [ reps, setReps ] = useState(0);
+  const [ RPE, setRPE ] = useState(0);
+  let max=200;
+
+  useEffect(() => {
+    console.log("App.tsx rerender");
+    calculateMax();
+
+  },[weight,reps,RPE]);
 
   const [loaded] = useFonts({"SF Pro Display": require("./assets/fonts/SFProDisplay-Regular.ttf")});
   if (!loaded) {
@@ -24,8 +38,8 @@ export default function App() {
         <View style={styles.container}>
           <Background style={styles.background} />
           <Title />
-          <InputSection />
           <ResultsSection max={max} />
+          <InputSection />
           <StatusBar style="light" />
         </View>
       </TouchableWithoutFeedback>
@@ -34,11 +48,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    top: 0,
-    left: 0,
+    flex: 1,
   },
   background: {
     position: 'absolute',

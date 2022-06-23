@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     fontFamily: "SF Pro Display",
     fontSize: 96,
     position: "absolute",
-    justifyItems: "center",
     top: 663,
   },
   container: {

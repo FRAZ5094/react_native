@@ -10,12 +10,12 @@ const InputSection = () => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Input text={"Weight"}/>
+        <Input placeholder={"Weight"}/>
       </View>
       <View style={styles.wrapper}>
-        <Input text={"Reps"}/>
+        <Input placeholder={"Reps"}/>
       </View>
-      <Input onPress={() => {setRPEPickerOpen(!RPEPickerOpen)}} text={"RPE"}/>
+      <Input onPress={() => {setRPEPickerOpen(!RPEPickerOpen)}} placeholder={"RPE"}/>
       { RPEPickerOpen && <Picker>
           <Picker.Item {...pickerItemProps} label="RPE6" value="6" />
           <Picker.Item {...pickerItemProps} label="RPE6.5" value="6.5" />
