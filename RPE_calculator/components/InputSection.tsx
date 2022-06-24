@@ -5,16 +5,19 @@ import Input from "./Input";
 
 const InputSection = ({ weight, setWeight, reps, setReps, RPE, setRPE }) => {
   
+  const repsError = (reps) => {
+    return parseInt(reps)>15;
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Input placeholder={"Weight"} state={weight} setState={setWeight} />
+        <Input placeholder={"Weight"} unit={"kg"} state={weight} setState={setWeight} keyboardType={"decimal-pad"} />
       </View>
       <View style={styles.wrapper}>
-        <Input placeholder={"Reps"} state={reps} setState={setReps}/>
+        <Input placeholder={"Reps"} unit={"reps"} state={reps} setState={setReps} errorFunction={repsError} keyboardType={"number-pad"}/>
       </View>
-      <Input placeholder={"RPE"} state={RPE} setState={setRPE}/>
+      <Input placeholder={"RPE"} unit={"RPE"} state={RPE} setState={setRPE} keyboardType={"decimal-pad"}/>
     </View>
   )
 

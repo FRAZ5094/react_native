@@ -12,21 +12,18 @@ import { CalculateMax } from "./RPE_calulation";
 
 export default function App() {
 
-  const calculateMax = () => {
-      let newMax=parseInt(weight) + parseInt(reps) + parseInt(RPE);
-  }
 
   const keyboardHeight = useKeyboardHeight();
-  let [ weight, setWeight ] = useState();
-  let [ reps, setReps ] = useState();
-  let [ RPE, setRPE ] = useState();
+  let [ weight, setWeight ] = useState({ value: "", isFilled: false});
+  let [ reps, setReps ] = useState({ value: "", isFilled: false});
+  let [ RPE, setRPE ] = useState({ value: "", isFilled: false});
   let [ max, setMax ] = useState();
 
   let InputProps = { weight, setWeight, reps, setReps, RPE, setRPE };
 
   useEffect(() => {
     console.log("App.tsx rerender");
-    let newMax=CalculateMax(weight, reps, RPE);
+    let newMax=CalculateMax(weight.value, reps.value, RPE.value);
     setMax(newMax);
 
   },[weight,reps,RPE]);
