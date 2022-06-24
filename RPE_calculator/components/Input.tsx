@@ -4,7 +4,7 @@ const Input = ({ placeholder, state, setState }) => {
 
 
   return (
-    <TextInput keyboardType="decimal-pad" keyboardAppearance="dark" clearTextOnFocus={true} placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={placeholder} value={state} onChangeText={text => setState(text)} />
+    <TextInput keyboardType="decimal-pad" keyboardAppearance="dark" placeholderTextColor="rgba(255, 255, 255, 0.3)" style={styles.input} placeholder={placeholder} value={state} onChangeText={text => setState(text)} />
   )
 
 }

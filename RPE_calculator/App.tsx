@@ -7,15 +7,13 @@ import { useFonts } from 'expo-font';
 import InputSection from './components/InputSection.tsx';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
 import ResultsSection from './components/ResultsSection';
+import { CalculateMax } from "./RPE_calulation";
 
 
 export default function App() {
 
   const calculateMax = () => {
-      console.log("Calculating max");
-    // @ts-ignore: Object is possibly 'null'.
       let newMax=parseInt(weight) + parseInt(reps) + parseInt(RPE);
-      setMax(newMax);
   }
 
   const keyboardHeight = useKeyboardHeight();
@@ -28,7 +26,8 @@ export default function App() {
 
   useEffect(() => {
     console.log("App.tsx rerender");
-    calculateMax();
+    let newMax=CalculateMax(weight, reps, RPE);
+    setMax(newMax);
 
   },[weight,reps,RPE]);
 

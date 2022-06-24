@@ -18,10 +18,14 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "RPE_calculator",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
+        "package": "com.yourcompany.yourappname",
+        "versionCode": 1,
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }

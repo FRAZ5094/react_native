@@ -21,7 +21,11 @@ const RPE_grid=[
 [0.723,	0.6935,	0.6665,	0.6395,	0.6125,	0.5855,	0.5585,	0.5315,	0.5045,	0.4775,	0.4505,	0.4235,	0.3965,	0.3695,	0.3425],
 [0.707,	0.68,	0.653,	0.626,	0.599,	0.572,	0.545,	0.518,	0.491,	0.464,	0.437,	0.41,	0.383,	0.356,	0.329]];
 
-function CalculateMax(weight,reps,RPE) {
+export function CalculateMax(weight,reps,RPE) {
+
+  if (weight===undefined || reps===undefined || RPE===undefined){
+    return undefined;
+  }
 
   RPE*=2;
   let max=(weight)/RPE_grid[20-RPE][reps-1];
