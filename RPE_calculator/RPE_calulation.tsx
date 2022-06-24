@@ -33,9 +33,8 @@ export function CalculateMax(weight,reps,RPE) {
   //console.log("parseFloat(RPE)%1!==1", parseFloat(RPE)%1!==0);
 
   RPE*=2;
-  console.log("RPE: ",RPE);
 
-  if (weight===undefined || reps===undefined || RPE===undefined || reps>15 || RPE>20 || parseFloat(RPE)%1!== 0) {
+  if (weight===undefined || reps===undefined || RPE===undefined || repsError(reps) || RPEError(RPE/2)) {
     return undefined;
   }
   console.log("calculating max "); 
@@ -45,3 +44,10 @@ export function CalculateMax(weight,reps,RPE) {
 
 }
 
+export function repsError(reps) {
+  return reps>15;
+};
+
+export function RPEError(RPE) {
+  return (((parseFloat(RPE)*2)%1!== 0 && RPE!=="") || RPE>=20)
+};

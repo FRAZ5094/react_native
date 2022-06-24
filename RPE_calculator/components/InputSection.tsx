@@ -2,12 +2,12 @@ import {Picker} from '@react-native-picker/picker';
 import {useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Pressable, TouchableWithoutFeedback, Keyboard, TextInput } from 'react-native';
 import Input from "./Input";
+import { repsError, RPEError } from "../RPE_calulation";
 
 const InputSection = ({ weight, setWeight, reps, setReps, RPE, setRPE }) => {
   
-  const repsError = (reps) => {
-    return parseInt(reps)>15;
-  };
+
+
 
   return (
     <View style={styles.container}>
@@ -17,7 +17,7 @@ const InputSection = ({ weight, setWeight, reps, setReps, RPE, setRPE }) => {
       <View style={styles.wrapper}>
         <Input placeholder={"Reps"} unit={"reps"} state={reps} setState={setReps} errorFunction={repsError} keyboardType={"number-pad"}/>
       </View>
-      <Input placeholder={"RPE"} unit={"RPE"} state={RPE} setState={setRPE} keyboardType={"decimal-pad"}/>
+      <Input placeholder={"RPE"} unit={"RPE"} state={RPE} setState={setRPE} errorFunction={RPEError} keyboardType={"decimal-pad"}/>
     </View>
   )
 

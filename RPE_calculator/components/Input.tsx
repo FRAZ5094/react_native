@@ -1,6 +1,15 @@
 import { View, Text, StyleSheet , TextInput } from 'react-native';
 
-const Input = ({ placeholder, state, setState, unit, errorFunction, keyboardType }) => {
+interface Props {
+  placeholder: string,
+  state: { value: string, isFilled: boolean },
+  setState: ({value, isFilled}: { value: string; isFilled: boolean })=> void,
+  unit: string,
+  errorFunction?: (state: string)=> boolean,
+  keyboardType: "default"|"email-address"|"numeric"|"phone-pad"|"number-pad"|"ascii-capable"|"numbers-and-punctuation"|"url"|"name-phone-pad"|"decimal-pad"|"twitter"|"web-search"|"ascii-capable-number-pad"|"visible-password",
+}
+
+const Input:React.FC<Props> = ({ placeholder, state, setState, unit, errorFunction, keyboardType }) => {
 
 
   return (
@@ -8,11 +17,11 @@ const Input = ({ placeholder, state, setState, unit, errorFunction, keyboardType
     keyboardType={keyboardType}
     keyboardAppearance="dark" 
     placeholderTextColor="rgba(255, 255, 255, 0.3)" 
-    style={ errorFunction && errorFunction(state) ? styles.inputerror : styles.input } 
+    style={ errorFunction && errorFunction(state.value) ? styles.inputerror : styles.input } 
     placeholder={placeholder} 
     onChangeText={ text => setState({ value: text, isFilled: false })}
     value={ state.isFilled ? state.value + " " + unit : state.value }
-    onFocus={() => setState({ ...state, isFilled: false })} 
+    onFocus={() => setState({ value: "", isFilled: false })} 
     onEndEditing={() => {
       if (state.value =="") {
         setState({ ...state, isFilled: false });

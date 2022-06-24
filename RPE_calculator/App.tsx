@@ -17,7 +17,7 @@ export default function App() {
   let [ weight, setWeight ] = useState({ value: "", isFilled: false});
   let [ reps, setReps ] = useState({ value: "", isFilled: false});
   let [ RPE, setRPE ] = useState({ value: "", isFilled: false});
-  let [ max, setMax ] = useState();
+  let [ max, setMax ] = useState("");
 
   let InputProps = { weight, setWeight, reps, setReps, RPE, setRPE };
 
