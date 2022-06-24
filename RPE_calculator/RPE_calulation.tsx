@@ -32,12 +32,12 @@ export function CalculateMax(weight,reps,RPE) {
   //console.log("RPE>10", RPE>10);
   //console.log("parseFloat(RPE)%1!==1", parseFloat(RPE)%1!==0);
 
-  RPE*=2;
 
-  if (weight===undefined || reps===undefined || RPE===undefined || repsError(reps) || RPEError(RPE/2)) {
+  if (repsError(reps) || RPEError(RPE)) {
     return undefined;
   }
   console.log("calculating max "); 
+  RPE*=2;
   let max=(weight)/RPE_grid[20-RPE][reps-1];
   max=max.toFixed(1);
   return max; 
