@@ -42,7 +42,6 @@ export function CalculateMax(weight,reps,RPE) {
   RPE*=2;
   let max=(weight)/RPE_grid[20-RPE][reps-1];
   max=max.toFixed(1);
-  console.log("max: ",max);
   return max; 
 
 }

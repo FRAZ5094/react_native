@@ -22,7 +22,6 @@ export default function App() {
   let InputProps = { weight, setWeight, reps, setReps, RPE, setRPE };
 
   useEffect(() => {
-    console.log("App.tsx rerender");
     let newMax=CalculateMax(weight.value, reps.value, RPE.value);
     setMax(newMax);
 

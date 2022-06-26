@@ -17,7 +17,7 @@ const InputSection = ({ weight, setWeight, reps, setReps, RPE, setRPE }) => {
       <View style={styles.wrapper}>
         <Input placeholder={"Reps"} unit={"reps"} state={reps} setState={setReps} errorFunction={repsError} keyboardType={"number-pad"}/>
       </View>
-      <Input placeholder={"RPE"} unit={"RPE"} state={RPE} setState={setRPE} errorFunction={RPEError} keyboardType={"decimal-pad"}/>
+      <Input placeholder={"RPE"} unit={"RPE"} state={RPE} setState={setRPE} errorFunction={RPEError} keyboardType={"decimal-pad"} unitInfront={true} />
     </View>
   )
 

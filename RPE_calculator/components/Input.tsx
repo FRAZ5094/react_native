@@ -6,11 +6,23 @@ interface Props {
   setState: ({value, isFilled}: { value: string; isFilled: boolean })=> void,
   unit: string,
   errorFunction?: (state: string)=> boolean,
-  keyboardType: "default"|"email-address"|"numeric"|"phone-pad"|"number-pad"|"ascii-capable"|"numbers-and-punctuation"|"url"|"name-phone-pad"|"decimal-pad"|"twitter"|"web-search"|"ascii-capable-number-pad"|"visible-password",
+  keyboardType?: "default"|"email-address"|"numeric"|"phone-pad"|"number-pad"|"ascii-capable"|"numbers-and-punctuation"|"url"|"name-phone-pad"|"decimal-pad"|"twitter"|"web-search"|"ascii-capable-number-pad"|"visible-password",
+  unitInfront: boolean,
 }
 
-const Input:React.FC<Props> = ({ placeholder, state, setState, unit, errorFunction, keyboardType }) => {
+const Input:React.FC<Props> = ({ placeholder, state, setState, unit, errorFunction, keyboardType, unitInfront=false }) => {
 
+  let displayedValue;
+
+  if (state.isFilled){
+    if (unitInfront){
+    displayedValue = unit + " " + state.value;
+    } else {
+    displayedValue = state.value + " " + unit;
+    }
+  } else {
+    displayedValue = state.value;
+  }
 
   return (
     <TextInput 
@@ -20,7 +32,7 @@ const Input:React.FC<Props> = ({ placeholder, state, setState, unit, errorFuncti
     style={ errorFunction && errorFunction(state.value) ? styles.inputerror : styles.input } 
     placeholder={placeholder} 
     onChangeText={ text => setState({ value: text, isFilled: false })}
-    value={ state.isFilled ? state.value + " " + unit : state.value }
+    value={displayedValue}
     onFocus={() => setState({ value: "", isFilled: false })} 
     onEndEditing={() => {
       if (state.value =="") {
